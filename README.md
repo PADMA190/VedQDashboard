@@ -1,7 +1,6 @@
 # 🎓 VedQ — Student Quiz Dashboard
 
-A production-grade MERN application for an EdTech platform, providing role-based quiz practice across **Maths, Physics, Chemistry, English, and Biology** for **Classes 6–12**.
-
+A Platfrom where student can practice assigned quizzes and review weak points and retake quiz.
 ---
 
 ## ✨ Features
@@ -53,7 +52,7 @@ App → `http://localhost:5173` · API → `http://localhost:5000`
 
 | Service | URL |
 |---|---|
-| 🌍 Live App | https://ved-q-dashboard.vercel.app/ |
+| 🌍 Live App | https://ved-q-dashboard.vercel.app |
 
 ---
 
