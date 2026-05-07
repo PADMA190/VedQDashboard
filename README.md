@@ -64,7 +64,7 @@ App → `http://localhost:5173` · API → `http://localhost:5000`
 
 ### 👨‍🎓 Student Login
 - **Email:** `padmalatchi@gmail.com`
-- **Password:** `Student@12345`
+- **Password:** `Padma@190`
 
 > ⚠️ **Note:** Newly registered students may not see quizzes initially because quizzes are assigned by admins. Use the demo student account to review assigned quizzes and dashboard functionality.
 
