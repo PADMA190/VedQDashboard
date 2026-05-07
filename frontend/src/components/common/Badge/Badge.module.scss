@@ -1,0 +1,22 @@
+@use '../../../styles/variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  border-radius: $radius-full;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+}
+
+.s-sm { padding: 0.1rem 0.5rem; font-size: 0.6875rem; }
+.s-md { padding: 0.18rem 0.65rem; font-size: 0.75rem; }
+
+.t-neutral { background: $neutral-100; color: $neutral-700; border-color: $neutral-200; }
+.t-primary { background: $primary-50; color: $primary-700; border-color: $primary-100; }
+.t-success { background: $success-bg; color: $success-fg; }
+.t-warning { background: $warning-bg; color: $warning-fg; }
+.t-danger  { background: $danger-bg;  color: $danger-fg; }
+.t-info    { background: $info-bg;    color: $info-fg; }

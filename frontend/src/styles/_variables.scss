@@ -1,0 +1,88 @@
+// =============================================================================
+// Design tokens — colors, spacing, typography, radii, shadows, breakpoints, z.
+// =============================================================================
+
+// ---- Brand palette (#ff693d coral) ----
+$primary-50:  #fff4f0;
+$primary-100: #ffe1d6;
+$primary-200: #ffc2ad;
+$primary-300: #ffa284;
+$primary-400: #ff855a;
+$primary-500: #ff693d; // brand
+$primary-600: #e5552a;
+$primary-700: #c24420;
+$primary-800: #993517;
+$primary-900: #66220e;
+
+// ---- Neutrals ----
+$neutral-0:   #ffffff;
+$neutral-50:  #fafafa;
+$neutral-100: #f4f4f5;
+$neutral-200: #e4e4e7;
+$neutral-300: #d4d4d8;
+$neutral-400: #a1a1aa;
+$neutral-500: #71717a;
+$neutral-600: #52525b;
+$neutral-700: #3f3f46;
+$neutral-800: #27272a;
+$neutral-900: #18181b;
+
+// ---- Semantic ----
+$success:     #16a34a;
+$success-bg:  #dcfce7;
+$success-fg:  #166534;
+$warning:     #f59e0b;
+$warning-bg:  #fef3c7;
+$warning-fg:  #92400e;
+$danger:      #dc2626;
+$danger-bg:   #fee2e2;
+$danger-fg:   #991b1b;
+$info:        #0284c7;
+$info-bg:     #e0f2fe;
+$info-fg:     #075985;
+
+// ---- Typography ----
+$font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+// ---- Spacing scale (rem) ----
+$space-2xs: 0.125rem;  // 2
+$space-xs:  0.25rem;   // 4
+$space-sm:  0.5rem;    // 8
+$space-md:  0.75rem;   // 12
+$space:     1rem;      // 16
+$space-lg:  1.5rem;    // 24
+$space-xl:  2rem;      // 32
+$space-2xl: 3rem;      // 48
+$space-3xl: 4rem;      // 64
+
+// ---- Radii ----
+$radius-sm:   0.25rem;
+$radius-md:   0.5rem;
+$radius-lg:   0.75rem;
+$radius-xl:   1rem;
+$radius-full: 9999px;
+
+// ---- Shadows ----
+$shadow-xs: 0 1px 2px rgba(24, 24, 27, 0.04);
+$shadow-sm: 0 1px 3px rgba(24, 24, 27, 0.06), 0 1px 2px rgba(24, 24, 27, 0.04);
+$shadow-md: 0 4px 8px -2px rgba(24, 24, 27, 0.08), 0 2px 4px -2px rgba(24, 24, 27, 0.05);
+$shadow-lg: 0 12px 20px -6px rgba(24, 24, 27, 0.1), 0 4px 8px -4px rgba(24, 24, 27, 0.06);
+$shadow-focus: 0 0 0 3px rgba(255, 105, 61, 0.25);
+
+// ---- Z-index ----
+$z-sticky:  100;
+$z-overlay: 800;
+$z-modal:   1000;
+$z-toast:   1100;
+
+// ---- Breakpoints (mobile-first) ----
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// ---- Layout ----
+$container-max: 1200px;
+$sidebar-width: 240px;
+$topbar-height: 64px;

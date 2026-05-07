@@ -1,0 +1,50 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.page { display: flex; flex-direction: column; gap: $space-lg; }
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+
+  @include md-up {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-xl;
+  }
+}
+
+.title { @include t.h1; }
+.subtitle { color: $neutral-500; margin-top: $space-2xs; }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  align-items: flex-end;
+  padding: $space-sm 0;
+}
+
+.toolbarSpacer { flex: 1; }
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space;
+
+  @include md-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.formFull { grid-column: 1 / -1; }
+
+.actions {
+  display: flex;
+  gap: $space-sm;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.dim { color: $neutral-500; font-size: 0.8125rem; }

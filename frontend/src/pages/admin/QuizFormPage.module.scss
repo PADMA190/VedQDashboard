@@ -1,0 +1,92 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.lbl { @include t.label; display: block; margin-bottom: $space-xs; }
+
+.textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  border: 1px solid $neutral-300;
+  border-radius: $radius-md;
+  padding: $space-sm $space;
+  background: $neutral-0;
+  resize: vertical;
+  min-height: 4rem;
+  color: $neutral-900;
+
+  &:focus-visible { @include focus-ring; border-color: $primary-500; outline: none; }
+}
+
+.publish {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-sm $space;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-md;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9375rem;
+  color: $neutral-800;
+
+  input { accent-color: $primary-500; cursor: pointer; }
+}
+
+.qSection { margin-top: $space; }
+
+.qHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space;
+  margin-bottom: $space;
+  flex-wrap: wrap;
+}
+
+.qTitle { @include t.h3; }
+.qCount { color: $neutral-500; font-weight: 500; }
+.errInline { display: block; font-size: 0.75rem; color: $danger-fg; font-weight: 500; }
+
+.qList {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  counter-reset: q;
+}
+
+.qRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: $space-sm;
+  padding: $space-sm $space;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-md;
+  background: $neutral-0;
+}
+
+.qIndex {
+  font-weight: 700;
+  color: $neutral-500;
+  font-variant-numeric: tabular-nums;
+  align-self: center;
+}
+
+.qMain { display: flex; flex-direction: column; gap: $space-xs; min-width: 0; }
+.qTags { display: flex; gap: $space-xs; flex-wrap: wrap; }
+.qText { color: $neutral-900; font-size: 0.9375rem; @include clamp-lines(2); }
+
+.removeBtn {
+  @include reset-button;
+  width: 1.75rem; height: 1.75rem;
+  border-radius: $radius-md;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: $neutral-500;
+  align-self: center;
+
+  &:hover { background: $danger-bg; color: $danger; }
+  &:focus-visible { @include focus-ring; }
+}

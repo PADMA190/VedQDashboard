@@ -1,0 +1,3 @@
+subject,class,topic,difficulty,questionText,optionA,optionB,optionC,optionD,correctOption,explanation
+Maths,9,Algebra,easy,"Solve x + 5 = 12.",5,7,12,17,B,"Subtract 5 from both sides: x = 7."
+Physics,11,Kinematics,easy,"The SI unit of acceleration is:",m/s,m/s^2,kg·m/s,N,B,"Acceleration is the rate of change of velocity, measured in m/s^2."

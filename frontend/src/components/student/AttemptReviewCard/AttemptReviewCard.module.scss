@@ -1,0 +1,116 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as t;
+
+.card {
+  background: $neutral-0;
+  border: 1px solid $neutral-200;
+  border-left: 4px solid $neutral-200;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+}
+
+.s-correct { border-left-color: $success; }
+.s-wrong   { border-left-color: $danger; }
+.s-skipped { border-left-color: $neutral-300; }
+
+.head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  font-size: 0.875rem;
+  color: $neutral-500;
+}
+
+.index { font-weight: 700; color: $neutral-800; }
+.topic { color: $neutral-500; }
+.time { margin-left: auto; @include t.caption; }
+
+.question {
+  font-size: 1.0625rem;
+  color: $neutral-900;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.options {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-sm $space;
+  background: $neutral-50;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-md;
+  font-size: 0.9375rem;
+}
+
+.optKey {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: $radius-sm;
+  background: $neutral-0;
+  border: 1px solid $neutral-300;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.optText { min-width: 0; }
+.optTag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.5rem;
+  border-radius: $radius-full;
+  background: $neutral-200;
+  color: $neutral-700;
+}
+
+.selectedOpt { box-shadow: 0 0 0 2px rgba(255, 105, 61, 0.15) inset; }
+.correctOpt {
+  background: $success-bg;
+  border-color: rgba(22, 163, 74, 0.3);
+  color: $success-fg;
+  .optKey { background: $success; color: $neutral-0; border-color: $success; }
+  .optTag { background: $success; color: $neutral-0; }
+}
+.wrongOpt {
+  background: $danger-bg;
+  border-color: rgba(220, 38, 38, 0.3);
+  color: $danger-fg;
+  .optKey { background: $danger; color: $neutral-0; border-color: $danger; }
+  .optTag { background: $danger; color: $neutral-0; }
+}
+
+.explanation {
+  background: $primary-50;
+  border: 1px solid $primary-100;
+  border-radius: $radius-md;
+  padding: $space-sm $space;
+  color: $neutral-800;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: $primary-700;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+
+  p { margin-top: $space-xs; }
+}

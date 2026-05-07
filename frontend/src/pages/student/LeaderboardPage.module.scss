@@ -1,0 +1,70 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.page { display: flex; flex-direction: column; gap: $space-lg; }
+
+.title { @include t.h1; }
+.subtitle { color: $neutral-500; margin-top: $space-2xs; }
+
+.filterRow {
+  display: flex;
+  gap: $space;
+  flex-wrap: wrap;
+  margin-top: $space;
+}
+
+.list {
+  @include reset-list;
+  counter-reset: lb;
+  padding: $space-sm 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  gap: $space;
+  align-items: center;
+  padding: $space-sm $space-lg;
+  border-bottom: 1px solid $neutral-100;
+}
+
+.me {
+  background: $primary-50;
+}
+
+.rankCol { font-variant-numeric: tabular-nums; }
+
+.who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+
+  strong { color: $neutral-900; font-weight: 600; }
+}
+
+.youTag {
+  display: inline-block;
+  margin-left: $space-xs;
+  padding: 0 0.4rem;
+  background: $primary-500;
+  color: $neutral-0;
+  border-radius: $radius-full;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.dim { color: $neutral-500; font-size: 0.8125rem; }
+
+.scoreCol { text-align: right; line-height: 1.1; }
+.score {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $neutral-900;
+  font-variant-numeric: tabular-nums;
+}

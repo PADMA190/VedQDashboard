@@ -1,0 +1,73 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as t;
+
+.card {
+  background: $neutral-0;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+    border-color: $primary-200;
+  }
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs;
+}
+
+.title {
+  @include t.h3;
+  margin-top: $space-2xs;
+}
+
+.desc {
+  color: $neutral-600;
+  font-size: 0.9375rem;
+  @include clamp-lines(2);
+}
+
+.meta {
+  display: flex;
+  gap: $space-lg;
+  margin: 0;
+  padding-top: $space-sm;
+  border-top: 1px solid $neutral-100;
+  margin-top: auto;
+
+  div { display: flex; flex-direction: column; gap: 2px; }
+  dt { @include t.caption; }
+  dd { font-weight: 600; color: $neutral-800; font-size: 0.9375rem; margin: 0; }
+}
+
+.foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $space-sm;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  padding: 0.55rem 1rem;
+  background: $primary-500;
+  color: $neutral-0;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: $radius-md;
+  text-decoration: none;
+  transition: background-color 120ms ease;
+
+  &:hover { background: $primary-600; color: $neutral-0; text-decoration: none; }
+  &:focus-visible { @include focus-ring; }
+}

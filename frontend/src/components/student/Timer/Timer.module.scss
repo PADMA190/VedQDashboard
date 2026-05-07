@@ -1,0 +1,32 @@
+@use '../../../styles/variables' as *;
+
+.timer {
+  display: inline-flex;
+  align-items: baseline;
+  gap: $space-xs;
+  padding: 0.45rem 0.85rem;
+  border-radius: $radius-full;
+  border: 1px solid $neutral-200;
+  background: $neutral-0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.icon { font-size: 1rem; }
+.value { font-size: 1.05rem; }
+.label { font-size: 0.75rem; color: $neutral-500; }
+
+.tone-normal { color: $neutral-800; }
+.tone-warn   { color: $warning-fg; background: $warning-bg; border-color: rgba(245, 158, 11, 0.25); }
+.tone-danger {
+  color: $danger-fg;
+  background: $danger-bg;
+  border-color: rgba(220, 38, 38, 0.25);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.03); }
+}

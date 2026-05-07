@@ -1,0 +1,54 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-sm;
+
+  @include md-up { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+
+.list {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: $space;
+  padding: $space $space-lg;
+  border-bottom: 1px solid $neutral-100;
+
+  &:last-child { border-bottom: 0; }
+}
+
+.rowMain {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  min-width: 0;
+}
+
+.tags {
+  display: flex;
+  gap: $space-xs;
+  flex-wrap: wrap;
+}
+
+.qText {
+  color: $neutral-900;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  @include clamp-lines(2);
+}
+
+.rowActions {
+  display: flex;
+  gap: $space-xs;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}

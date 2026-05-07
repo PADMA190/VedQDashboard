@@ -1,0 +1,33 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as t;
+
+.card {
+  background: $neutral-0;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+}
+
+.p-none { padding: 0; }
+.p-sm { padding: $space; }
+.p-md { padding: $space-lg; }
+.p-lg { padding: $space-lg; }
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space;
+  margin-bottom: $space;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xs;
+  min-width: 0;
+}
+
+.title { @include t.h3; }
+.subtitle { @include t.body-sm; color: $neutral-500; }
+.actions { display: flex; gap: $space-sm; flex-shrink: 0; }

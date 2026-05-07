@@ -1,0 +1,32 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.section { display: flex; flex-direction: column; gap: $space; }
+.sectionTitle { @include t.h3; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: $space;
+
+  @include md-up { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xs;
+}
+
+.statLabel { @include t.caption; }
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $neutral-900;
+  font-variant-numeric: tabular-nums;
+}
+
+.tone-good { color: $success; }
+
+.hint { @include t.caption; color: $neutral-400; }

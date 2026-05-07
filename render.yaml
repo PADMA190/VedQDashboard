@@ -1,0 +1,52 @@
+# Render Blueprint — describes the backend service so Render can provision it
+# from this repo. Importing this in the Render dashboard ("New → Blueprint")
+# creates the web service with the right build/start commands.
+#
+# Secrets (sync: false) prompt you to enter them in the Render UI on first
+# deploy and are never written to the repo.
+
+services:
+  - type: web
+    name: vedq-backend
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: backend
+    branch: main
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: JWT_ACCESS_TTL
+        value: 15m
+      - key: JWT_REFRESH_TTL
+        value: 7d
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: COOKIE_SAME_SITE
+        value: none
+      - key: CLIENT_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: BCRYPT_SALT_ROUNDS
+        value: "10"
+      - key: LOG_LEVEL
+        value: info
+      - key: RATE_LIMIT_WINDOW_MS
+        value: "900000"
+      - key: RATE_LIMIT_MAX_AUTH
+        value: "10"
+      - key: RATE_LIMIT_MAX_GENERAL
+        value: "100"

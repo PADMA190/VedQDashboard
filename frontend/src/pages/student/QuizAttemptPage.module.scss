@@ -1,0 +1,187 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.page { display: flex; flex-direction: column; gap: $space-lg; }
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space;
+  flex-wrap: wrap;
+}
+
+.barLeft {
+  display: flex;
+  align-items: center;
+  gap: $space;
+  min-width: 0;
+}
+
+.exit {
+  color: $neutral-600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  white-space: nowrap;
+  &:hover { color: $primary-600; text-decoration: none; }
+}
+
+.title { @include t.h2; }
+.subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  color: $neutral-500;
+  font-size: 0.875rem;
+  margin-top: $space-2xs;
+  flex-wrap: wrap;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-lg;
+
+  @include lg-up {
+    grid-template-columns: 1fr 320px;
+    align-items: flex-start;
+  }
+}
+
+.questionCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+}
+
+.qHead {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  font-size: 0.875rem;
+  color: $neutral-600;
+}
+
+.qIndex { font-weight: 600; color: $neutral-800; }
+.dim { color: $neutral-500; font-weight: 500; }
+.qTopic { color: $primary-700; font-weight: 500; }
+
+.markBtn {
+  @include reset-button;
+  margin-left: auto;
+  padding: 0.35rem 0.7rem;
+  border-radius: $radius-md;
+  border: 1px solid $neutral-300;
+  font-size: 0.8125rem;
+  color: $neutral-700;
+
+  &:hover { border-color: $warning; color: $warning-fg; }
+  &:focus-visible { @include focus-ring; }
+}
+
+.markActive {
+  background: $warning-bg;
+  color: $warning-fg;
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+.qText {
+  font-size: 1.1875rem;
+  line-height: 1.55;
+  color: $neutral-900;
+  font-weight: 500;
+}
+
+.options {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-sm $space;
+  background: $neutral-0;
+  border: 1.5px solid $neutral-200;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: background-color 100ms ease, border-color 100ms ease, transform 80ms ease;
+
+  &:hover { border-color: $primary-300; background: $primary-50; }
+  &:focus-within { @include focus-ring; border-color: $primary-500; }
+  &:active { transform: translateY(1px); }
+}
+
+.optionChecked {
+  border-color: $primary-500;
+  background: $primary-50;
+}
+
+.optionRadio { @include visually-hidden; }
+
+.optKey {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: $radius-md;
+  background: $neutral-100;
+  border: 1px solid $neutral-300;
+  font-weight: 700;
+  font-size: 0.8125rem;
+}
+
+.optionChecked .optKey {
+  background: $primary-500;
+  color: $neutral-0;
+  border-color: $primary-500;
+}
+
+.optText { font-size: 0.9375rem; color: $neutral-900; }
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  margin-top: $space;
+  flex-wrap: wrap;
+}
+
+.spacer { flex: 1; }
+
+.sidebar {
+  position: sticky;
+  top: $topbar-height + 16px;
+}
+
+.sideTitle { @include t.h4; margin-bottom: $space-sm; }
+
+.progress {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: $space-xs;
+  margin-bottom: $space;
+  font-size: 0.8125rem;
+  color: $neutral-600;
+
+  strong { display: block; color: $neutral-900; font-size: 1.125rem; line-height: 1.1; }
+}
+
+.submitTop { margin-top: $space; }
+
+.summaryList {
+  margin: $space-sm 0 0;
+  padding-left: 1.25rem;
+  color: $neutral-700;
+
+  strong { color: $neutral-900; }
+}
+
+.warn { margin-top: $space-sm; color: $danger-fg; font-weight: 600; }

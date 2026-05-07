@@ -1,0 +1,40 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: $space 0;
+}
+
+.btn {
+  @include reset-button;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.65rem;
+  border: 1px solid $neutral-300;
+  border-radius: $radius-md;
+  font-size: 0.875rem;
+  color: $neutral-700;
+  background: $neutral-0;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+
+  &:hover:not(:disabled):not(.active) {
+    background: $neutral-50;
+    border-color: $neutral-400;
+  }
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+  &:focus-visible { @include focus-ring; }
+}
+
+.active {
+  background: $primary-500;
+  color: $neutral-0;
+  border-color: $primary-500;
+  font-weight: 600;
+}
+
+.gap { color: $neutral-400; padding: 0 $space-xs; }

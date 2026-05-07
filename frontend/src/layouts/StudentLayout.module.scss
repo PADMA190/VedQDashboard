@@ -1,0 +1,175 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use '../styles/typography' as t;
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include lg-up { grid-template-columns: $sidebar-width 1fr; }
+}
+
+.sidebar {
+  background: $neutral-0;
+  border-right: 1px solid $neutral-200;
+  padding: $space-lg $space;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  // Mobile: off-canvas
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: min(280px, 86vw);
+  z-index: $z-overlay;
+  transform: translateX(-100%);
+  transition: transform 200ms ease;
+
+  &.open { transform: translateX(0); box-shadow: $shadow-lg; }
+
+  @include lg-up {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    transform: none;
+    width: auto;
+    z-index: 1;
+  }
+}
+
+.brand { padding-inline: $space-sm; }
+
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  color: $neutral-900;
+  font-weight: 800;
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.brandDot {
+  width: 0.85rem; height: 0.85rem;
+  background: $primary-500;
+  border-radius: $radius-sm;
+  box-shadow: 0 0 0 4px $primary-100;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xs;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: 0.55rem 0.75rem;
+  border-radius: $radius-md;
+  color: $neutral-700;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease;
+
+  &:hover { background: $neutral-100; color: $neutral-900; }
+  &:focus-visible { @include focus-ring; }
+}
+
+.icon { font-size: 1.05rem; line-height: 1; width: 1.25rem; text-align: center; }
+
+.active {
+  background: $primary-50;
+  color: $primary-700;
+  font-weight: 600;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  height: $topbar-height;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid $neutral-200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space;
+  padding-inline: $space;
+
+  @include md-up { padding-inline: $space-lg; }
+}
+
+.burger {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem; height: 2.25rem;
+  border-radius: $radius-md;
+  font-size: 1.1rem;
+  color: $neutral-700;
+
+  &:hover { background: $neutral-100; }
+  &:focus-visible { @include focus-ring; }
+
+  @include lg-up { display: none; }
+}
+
+.topbarRight { display: flex; align-items: center; gap: $space-sm; margin-left: auto; }
+
+.profileLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-2xs $space-sm $space-2xs $space-sm;
+  border-radius: $radius-full;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 120ms ease;
+
+  &:hover { background: $neutral-100; text-decoration: none; }
+  &:focus-visible { @include focus-ring; }
+}
+
+.userMeta { display: none; flex-direction: column; align-items: flex-end; line-height: 1.1; }
+.userName { font-weight: 600; color: $neutral-900; font-size: 0.9rem; }
+.userClass { @include t.caption; }
+
+@include sm-up {
+  .userMeta { display: flex; }
+}
+
+.profileAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: $radius-full;
+  background: linear-gradient(135deg, $primary-500, $primary-700);
+  color: $neutral-0;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.content {
+  padding: $space-lg $space;
+  flex: 1;
+  min-width: 0;
+
+  @include md-up { padding: $space-xl $space-lg; }
+  @include xl-up { padding: $space-xl $space-2xl; }
+}

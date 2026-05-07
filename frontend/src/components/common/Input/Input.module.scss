@@ -1,0 +1,47 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as t;
+
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.full { width: 100%; }
+
+.label {
+  @include t.label;
+}
+
+.input {
+  appearance: none;
+  background: $neutral-0;
+  border: 1px solid $neutral-300;
+  border-radius: $radius-md;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9375rem;
+  color: $neutral-900;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+
+  &::placeholder { color: $neutral-400; }
+  &:hover:not(:disabled):not(.invalid) { border-color: $neutral-400; }
+  &:focus-visible { @include focus-ring; border-color: $primary-500; }
+  &:disabled { background: $neutral-100; color: $neutral-500; cursor: not-allowed; }
+}
+
+.invalid {
+  border-color: $danger;
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+    border-color: $danger;
+  }
+}
+
+.hint { @include t.caption; }
+
+.error {
+  font-size: 0.75rem;
+  color: $danger-fg;
+  font-weight: 500;
+}

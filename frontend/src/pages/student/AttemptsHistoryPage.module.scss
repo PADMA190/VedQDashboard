@@ -1,0 +1,60 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.page { display: flex; flex-direction: column; gap: $space-lg; }
+
+.title { @include t.h1; }
+.subtitle { color: $neutral-500; margin-top: $space-2xs; }
+
+.tableCard { padding: $space-lg; }
+
+.list {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $neutral-100;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space;
+  padding: $space $space-sm;
+  border-bottom: 1px solid $neutral-100;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 100ms ease;
+
+  &:hover { background: $neutral-50; text-decoration: none; }
+  &:focus-visible { @include focus-ring; outline-offset: -2px; border-radius: $radius-md; }
+}
+
+.rowMain {
+  display: flex;
+  align-items: center;
+  gap: $space;
+  min-width: 0;
+}
+
+.rowMeta {
+  color: $neutral-700;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  flex-wrap: wrap;
+}
+
+.rowSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.875rem;
+  color: $neutral-700;
+  white-space: nowrap;
+}
+
+.dim { color: $neutral-500; font-size: 0.75rem; }
+.dot { color: $neutral-400; }

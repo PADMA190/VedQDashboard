@@ -1,0 +1,74 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.info {
+  display: flex;
+  gap: $space-sm;
+  align-items: flex-start;
+  padding: $space-sm $space;
+  background: $info-bg;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  border-radius: $radius-md;
+  color: $info-fg;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  margin: 0 0 $space;
+
+  code {
+    font-family: $font-mono;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: $radius-sm;
+    padding: 0 0.25rem;
+    font-size: 0.95em;
+  }
+}
+
+.infoIcon {
+  font-size: 1rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.sampleLink {
+  font-weight: 600;
+  color: $info-fg;
+  text-decoration: underline;
+
+  &:hover { color: $info; text-decoration: underline; }
+}
+
+.fileInput {
+  font-size: 0.9rem;
+  color: $neutral-700;
+}
+
+.previewHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space;
+  margin-bottom: $space;
+}
+
+.previewTitle { @include t.h3; }
+.previewSummary { display: flex; gap: $space-xs; }
+
+.errList {
+  background: $danger-bg;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: $radius-md;
+  padding: $space-sm $space-lg;
+  margin: 0 0 $space;
+  color: $danger-fg;
+  font-size: 0.8125rem;
+}
+
+.itemList {
+  margin: 0 0 $space;
+  padding-left: $space-lg;
+  font-size: 0.875rem;
+  color: $neutral-700;
+
+  li { margin-bottom: $space-2xs; }
+}

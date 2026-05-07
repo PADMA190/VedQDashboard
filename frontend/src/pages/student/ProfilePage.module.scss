@@ -1,0 +1,78 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.page { display: flex; flex-direction: column; gap: $space-lg; }
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: $space-lg;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: $radius-full;
+  background: linear-gradient(135deg, $primary-500, $primary-700);
+  color: $neutral-0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.identityText { flex: 1; min-width: 0; }
+.name { @include t.h2; }
+.meta { color: $neutral-500; font-size: 0.9375rem; margin-top: $space-2xs; }
+.tags { display: flex; gap: $space-xs; flex-wrap: wrap; margin-top: $space-sm; }
+.actions { margin-left: auto; }
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: $space;
+
+  @include md-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @include lg-up { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xs;
+}
+
+.statLabel { @include t.caption; }
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $neutral-900;
+  font-variant-numeric: tabular-nums;
+}
+
+.tone-warn { color: $danger-fg; }
+.tone-ok { color: $success-fg; }
+
+.empty { color: $neutral-500; padding: $space; }
+
+.subjectList {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+}
+
+.subjectRow {
+  display: flex;
+  align-items: center;
+  gap: $space;
+  padding: $space-sm 0;
+  border-bottom: 1px solid $neutral-100;
+
+  &:last-child { border-bottom: 0; }
+}
+
+.subjectMeta { color: $neutral-700; font-size: 0.9375rem; }

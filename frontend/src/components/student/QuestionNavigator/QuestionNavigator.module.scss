@@ -1,0 +1,66 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.wrapper { display: flex; flex-direction: column; gap: $space; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(2.25rem, 1fr));
+  gap: $space-xs;
+}
+
+.cell {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  border-radius: $radius-md;
+  border: 1px solid $neutral-300;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: $neutral-700;
+  background: $neutral-0;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, transform 80ms ease;
+
+  &:hover { border-color: $primary-300; }
+  &:focus-visible { @include focus-ring; }
+  &:active { transform: translateY(1px); }
+}
+
+.s-blank { background: $neutral-0; color: $neutral-700; border-color: $neutral-300; }
+.s-answered {
+  background: $primary-50;
+  color: $primary-700;
+  border-color: $primary-200;
+}
+.s-marked {
+  background: $warning-bg;
+  color: $warning-fg;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+.s-current {
+  background: $primary-500;
+  color: $neutral-0;
+  border-color: $primary-500;
+  box-shadow: 0 0 0 3px $primary-100;
+}
+
+.legend {
+  @include reset-list;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: $space-xs $space-sm;
+  font-size: 0.75rem;
+  color: $neutral-600;
+
+  li { display: inline-flex; align-items: center; gap: $space-xs; }
+}
+
+.swatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: $radius-sm;
+  display: inline-block;
+  border: 1px solid $neutral-300;
+}

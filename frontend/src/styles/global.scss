@@ -1,0 +1,94 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './typography' as t;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: $font-sans;
+  background: $neutral-50;
+  color: $neutral-800;
+  @include t.body;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: $primary-600;
+  text-decoration: none;
+  transition: color 120ms ease;
+
+  &:hover {
+    color: $primary-700;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+    border-radius: $radius-sm;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: $neutral-900;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
+
+::selection {
+  background: $primary-200;
+  color: $primary-900;
+}
+
+// Scrollbar polish (Chromium-only — graceful elsewhere)
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: $neutral-300;
+  border-radius: $radius-full;
+  border: 2px solid $neutral-50;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $neutral-400;
+}

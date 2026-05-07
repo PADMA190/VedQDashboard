@@ -1,0 +1,98 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as t;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  padding-bottom: $space-lg;
+  border-bottom: 1px solid $neutral-100;
+  margin-bottom: $space-lg;
+
+  &:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+}
+
+.sectionTitle { @include t.h4; }
+.sectionDesc { @include t.body-sm; color: $neutral-500; }
+
+.chips { display: flex; gap: $space-xs; flex-wrap: wrap; }
+
+.chip {
+  @include reset-button;
+  padding: 0.4rem 0.85rem;
+  border-radius: $radius-full;
+  border: 1px solid $neutral-300;
+  background: $neutral-0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $neutral-700;
+
+  &:hover { border-color: $primary-300; color: $primary-700; }
+  &:focus-visible { @include focus-ring; }
+}
+
+.chipActive {
+  background: $primary-500;
+  color: $neutral-0;
+  border-color: $primary-500;
+
+  &:hover { color: $neutral-0; }
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-sm;
+
+  @include md-up { grid-template-columns: 2fr 1fr; }
+}
+
+.list {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  max-height: 35vh;
+  overflow-y: auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: $space-sm;
+  padding: $space-sm $space;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: border-color 100ms ease, background-color 100ms ease;
+
+  &:hover { border-color: $primary-300; background: $primary-50; }
+}
+
+.checked {
+  border-color: $primary-500;
+  background: $primary-50;
+}
+
+.cb { accent-color: $primary-500; cursor: pointer; width: 1.05rem; height: 1.05rem; }
+
+.rowMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space;
+  min-width: 0;
+}
+
+.who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  strong { color: $neutral-900; }
+}
+
+.dim { color: $neutral-500; font-size: 0.8125rem; }
+
+.summary { color: $neutral-700; font-weight: 500; font-size: 0.875rem; }

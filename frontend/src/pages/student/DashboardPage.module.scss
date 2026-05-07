@@ -1,0 +1,70 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.page { display: flex; flex-direction: column; gap: $space-lg; }
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  padding: $space-lg;
+  background: linear-gradient(135deg, $primary-50 0%, $neutral-0 70%);
+  border: 1px solid $primary-100;
+  border-radius: $radius-lg;
+
+  @include lg-up {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-xl;
+  }
+}
+
+.title { @include t.h1; }
+.subtitle { color: $neutral-600; margin-top: $space-xs; }
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: $space;
+
+  @include md-up { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.stat {
+  background: $neutral-0;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-md;
+  padding: $space-sm $space;
+  min-width: 8rem;
+}
+
+.statLabel { @include t.caption; }
+.statValue {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: $neutral-900;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+}
+
+.filters {}
+.filterRow {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  margin-top: $space;
+
+  @include md-up { flex-direction: row; align-items: center; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space;
+
+  @include md-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @include lg-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

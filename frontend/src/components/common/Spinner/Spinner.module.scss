@@ -1,0 +1,36 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  padding: $space;
+}
+
+.inline {
+  flex-direction: row;
+  padding: 0;
+}
+
+.spinner {
+  display: inline-block;
+  border: 3px solid $primary-100;
+  border-top-color: $primary-500;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.s-sm .spinner { width: 1rem; height: 1rem; border-width: 2px; }
+.s-md .spinner { width: 1.5rem; height: 1.5rem; }
+.s-lg .spinner { width: 2.25rem; height: 2.25rem; }
+
+.label { color: $neutral-500; font-size: 0.875rem; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@include respect-motion {
+  .spinner { animation-duration: 2s; }
+}

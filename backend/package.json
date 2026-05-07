@@ -1,0 +1,41 @@
+{
+  "name": "quizdash-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Student Quiz Dashboard — Express API server.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed": "node src/scripts/seed.js",
+    "lint": "eslint \"src/**/*.js\" \"server.js\"",
+    "lint:fix": "eslint \"src/**/*.js\" \"server.js\" --fix",
+    "test": "jest --passWithNoTests"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "compression": "^1.7.5",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "express-validator": "^7.2.0",
+    "helmet": "^8.0.0",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.3",
+    "morgan": "^1.10.0",
+    "node-cache": "^5.1.2",
+    "winston": "^3.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "supertest": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

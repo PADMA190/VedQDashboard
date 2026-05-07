@@ -1,0 +1,23 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as t;
+
+.card {
+  width: 100%;
+  padding: $space-xl;
+}
+
+.title { @include t.h1; margin-bottom: $space-2xs; }
+.subtitle { color: $neutral-500; font-size: 0.9375rem; margin-bottom: $space-lg; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space;
+  margin-bottom: $space-lg;
+}
+
+.alt {
+  text-align: center;
+  font-size: 0.9rem;
+  color: $neutral-500;
+}

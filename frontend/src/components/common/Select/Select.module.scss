@@ -1,0 +1,50 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as t;
+
+.wrapper { display: inline-flex; flex-direction: column; gap: $space-xs; }
+.full { width: 100%; }
+.label { @include t.label; }
+
+.selectShell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: $neutral-0;
+  border: 1px solid $neutral-300;
+  border-radius: $radius-md;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+
+  &:hover { border-color: $neutral-400; }
+  &:focus-within { @include focus-ring; border-color: $primary-500; }
+}
+
+.invalid {
+  border-color: $danger;
+  &:focus-within { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2); }
+}
+
+.select {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0.55rem 2rem 0.55rem 0.75rem;
+  font-size: 0.9375rem;
+  color: $neutral-900;
+  width: 100%;
+  cursor: pointer;
+}
+
+.chev {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem; height: 1rem;
+  color: $neutral-500;
+  pointer-events: none;
+}
+
+.hint { @include t.caption; }
+.error { font-size: 0.75rem; color: $danger-fg; font-weight: 500; }

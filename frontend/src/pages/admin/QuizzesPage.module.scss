@@ -1,0 +1,50 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as t;
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-sm;
+
+  @include md-up { grid-template-columns: 2fr 1fr; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space;
+
+  @include md-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @include lg-up { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.tags { display: flex; gap: $space-xs; flex-wrap: wrap; }
+.title { @include t.h3; margin-top: $space-xs; }
+.desc { color: $neutral-600; font-size: 0.9375rem; @include clamp-lines(2); }
+
+.meta {
+  display: flex;
+  gap: $space-lg;
+  margin: 0;
+  padding-top: $space-sm;
+  border-top: 1px solid $neutral-100;
+  margin-top: auto;
+
+  div { display: flex; flex-direction: column; gap: 2px; }
+  dt { @include t.caption; }
+  dd { font-weight: 600; color: $neutral-800; font-size: 0.875rem; margin: 0; }
+}
+
+.cardActions {
+  display: flex;
+  gap: $space-xs;
+  flex-wrap: wrap;
+  margin-top: $space-sm;
+}

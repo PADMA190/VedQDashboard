@@ -1,0 +1,24 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as t;
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: $space-sm;
+}
+
+.title { @include t.h4; }
+.unit { @include t.caption; }
+
+.chart {
+  width: 100%;
+}
+
+.empty {
+  text-align: center;
+  padding: $space-xl;
+  color: $neutral-500;
+  h3 { @include t.h4; color: $neutral-800; margin-bottom: $space-xs; }
+  p { font-size: 0.9rem; }
+}

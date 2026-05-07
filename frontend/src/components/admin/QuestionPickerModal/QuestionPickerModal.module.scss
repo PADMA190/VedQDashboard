@@ -1,0 +1,73 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-sm;
+  margin-bottom: $space;
+
+  @include md-up { grid-template-columns: 2fr 1fr 1fr; }
+}
+
+.list {
+  @include reset-list;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  max-height: 50vh;
+  overflow-y: auto;
+  margin: 0;
+  padding-right: 4px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: $space-sm;
+  padding: $space-sm $space;
+  border: 1px solid $neutral-200;
+  border-radius: $radius-md;
+  background: $neutral-0;
+  cursor: pointer;
+  transition: border-color 100ms ease, background-color 100ms ease;
+
+  &:hover { border-color: $primary-300; background: $primary-50; }
+}
+
+.checked {
+  border-color: $primary-500;
+  background: $primary-50;
+}
+
+.cb {
+  margin-top: 0.25rem;
+  accent-color: $primary-500;
+  cursor: pointer;
+  width: 1.05rem; height: 1.05rem;
+}
+
+.rowMain {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  min-width: 0;
+}
+
+.tags {
+  display: flex;
+  gap: $space-xs;
+  flex-wrap: wrap;
+}
+
+.qText {
+  font-size: 0.9375rem;
+  color: $neutral-900;
+  @include clamp-lines(2);
+}
+
+.count {
+  color: $neutral-700;
+  font-weight: 500;
+  font-size: 0.875rem;
+}

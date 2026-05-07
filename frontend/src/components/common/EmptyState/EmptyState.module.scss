@@ -1,0 +1,32 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as t;
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $space-sm;
+  padding: $space-2xl $space;
+  border: 1px dashed $neutral-300;
+  border-radius: $radius-lg;
+  background: $neutral-50;
+  color: $neutral-600;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: $radius-full;
+  background: $primary-50;
+  color: $primary-600;
+  font-size: 1.5rem;
+  margin-bottom: $space-xs;
+}
+
+.title { @include t.h3; color: $neutral-800; }
+.desc { @include t.body-sm; max-width: 36ch; color: $neutral-500; }
+.action { margin-top: $space-sm; }

@@ -1,0 +1,100 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, transform 80ms ease;
+  user-select: none;
+  white-space: nowrap;
+
+  &:focus-visible { @include focus-ring; }
+  &:active:not(:disabled) { transform: translateY(1px); }
+  &:disabled { cursor: not-allowed; opacity: 0.55; }
+}
+
+// Sizes
+.s-sm { padding: 0.4rem 0.75rem; font-size: 0.8125rem; }
+.s-md { padding: 0.55rem 1rem; font-size: 0.9375rem; }
+.s-lg { padding: 0.7rem 1.25rem; font-size: 1rem; }
+
+.full { width: 100%; }
+
+// Variants
+.v-primary {
+  background: $primary-500;
+  color: $neutral-0;
+  border-color: $primary-500;
+
+  &:hover:not(:disabled) { background: $primary-600; border-color: $primary-600; }
+  &:active:not(:disabled) { background: $primary-700; border-color: $primary-700; }
+}
+
+.v-secondary {
+  background: $neutral-0;
+  color: $neutral-800;
+  border-color: $neutral-300;
+
+  &:hover:not(:disabled) { background: $neutral-50; border-color: $neutral-400; }
+}
+
+.v-ghost {
+  background: transparent;
+  color: $primary-700;
+  border-color: transparent;
+
+  &:hover:not(:disabled) { background: $primary-50; }
+}
+
+.v-danger {
+  background: $danger;
+  color: $neutral-0;
+  border-color: $danger;
+
+  &:hover:not(:disabled) { background: #b91c1c; border-color: #b91c1c; }
+}
+
+.v-success {
+  background: $success;
+  color: $neutral-0;
+  border-color: $success;
+
+  &:hover:not(:disabled) { background: #15803d; border-color: #15803d; }
+}
+
+.icon {
+  display: inline-flex;
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.loading {
+  position: relative;
+  color: transparent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 1rem; height: 1rem;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    color: $neutral-0;
+    transform: translate(-50%, -50%);
+    animation: spin 0.7s linear infinite;
+  }
+}
+
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
