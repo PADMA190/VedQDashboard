@@ -56,7 +56,7 @@ const env = Object.freeze({
 
   cookie: Object.freeze({
     secure: bool(process.env.COOKIE_SECURE, false),
-    sameSite: process.env.COOKIE_SAME_SITE || 'strict',
+    sameSite: process.env.COOKIE_SAME_SITE || 'none',
     domain: process.env.COOKIE_DOMAIN || undefined,
   }),
 
@@ -73,7 +73,7 @@ const env = Object.freeze({
 
   rateLimit: Object.freeze({
     windowMs: num(process.env.RATE_LIMIT_WINDOW_MS, 15 * 60 * 1000),
-    auth: num(process.env.RATE_LIMIT_MAX_AUTH, 10),
+    auth: num(process.env.RATE_LIMIT_MAX_AUTH, 20),
     general: num(process.env.RATE_LIMIT_MAX_GENERAL, 100),
   }),
 

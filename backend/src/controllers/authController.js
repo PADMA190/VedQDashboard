@@ -27,7 +27,13 @@ function setRefreshCookie(res, token) {
 }
 
 function clearRefreshCookie(res) {
-  res.clearCookie(REFRESH_COOKIE, { path: REFRESH_COOKIE_PATH });
+  res.clearCookie(REFRESH_COOKIE, {
+    httpOnly: true,
+    secure: env.cookie.secure,
+    sameSite: env.cookie.sameSite,
+    domain: env.cookie.domain,
+    path: REFRESH_COOKIE_PATH,
+  });
 }
 
 const register = asyncWrap(async (req, res) => {
